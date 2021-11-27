@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v4 } from "uuid";
 
-const Edit = ({ add }) => {
+const Edit = ({ add, shouldSubmit }) => {
   const [content, setContent] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -19,6 +19,7 @@ const Edit = ({ add }) => {
   }
 
   function addMemo() {
+    shouldSubmit.current = true;
     add(function (prev) {
       return [
         ...prev,
